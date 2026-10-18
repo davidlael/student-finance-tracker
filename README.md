@@ -5,7 +5,7 @@ A responsive, single-page web application designed for students to track income,
 ## 🚀 Live Demo & Repository
 - **Live Deployment:** [https://davidlael.github.io/student-finance-tracker/](https://davidlael.github.io/student-finance-tracker/)
 - **GitHub Repository:** [https://github.com/davidlael/student-finance-tracker](https://github.com/davidlael/student-finance-tracker)
--  ** VIDEO DEMO: ** https://youtu.be/LCGo5KcnM5U
+- VIDEO DEMO: https://youtu.be/LCGo5KcnM5U
 
 ---
 
