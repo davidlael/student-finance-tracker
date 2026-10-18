@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+        <title>Student Finance Tracker - Nziza Lael David</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <header class="site-header">
+            <div class="container header-inner">
+                <h1>Pennypinch - student Finance</h1>
+                <nav aria-label="Main Navigation">
+                    <ul class="nav-list">
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#records-section">Records</a></li>
+                        <li><a href="#form-section">Add/Edit</a></li>
+                        <li><a href="#settings">Settings</a></li>
+                        <Li><a href="#about">About</a></Li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main-content" class="container">
+            <section id="dashboard" class="card" aria-labelledby="dash-heading">
+                <h2 id="dash-heading">Dashborad & Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Records</h3>
+                        <p id="stat-total-records">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3> Total Spent</h3>
+                        <p id="stat-total-spent">$0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3> Top Category</h3>
+                        <p id="stat-top-category">N/A</p>
+                    </div>
+                    <div class=""stat-card>
+                        <h3>Budget Cap Status</h3>
+                        <p id="stat-cap-status">No cap set</p>
+                    </div>
+                </div>
+                <div class="chart-conatiner">
+                    <h3>Last 7 Days Spending Trend</h3>
+                    <div id="trend-chart" class="bar-chart" aria-label="Spending trend chart over the last 7 days></div>
+                </div>
+                <div class="budget-alert-region" id="budget-alert-region" aria-live="polite"></div>
+            </section>
+            <section id="records-section" class="card" aria-labelledby="records-heading">
+                <div class="records-header">
+                    <h2 id="records-heading">Transaction Records</h2>
+                    <div class="controls-toolbar">
+                        <div class="search-group">
+                            <label for="search-input">Search (Regex supported):</label>
+                            <input type="text" id="search-input" placeholder="e.g. coffee or \.\d{2}\b">
+                            <button id="toggle-case-btn" type="button" aria-pressed="false" title="Toggle case Sensitivity">Aa</button>  
+                        </div>
+                        <div class="sort-group">
+                            <label for="sort-select">Sort By:</label>
+                            <select id="sort-select">
+                                <option value="date-desc">Date (Newest first)</option>
+                                <option value="date-asc">Date (oldest first)</option>
+                                <option value="amount-desc">Amount (High to Low)</option>
+                                <option value="amount-asc">Amount (Low to High)</option>
+                                <option value="desc-asc">Description(A to Z)</option>
+                                <option value="asc-desc">Description(Z to A)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="search-error" class="error-text" role="alert"></div>
+                <div class="table-responsive">
+                    <table id="records-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section  id="form-section" class="card" aria-labelledby="form-heading">
+                <h2 id="form-heading">Add/Edit Transaction</h2>
+                <form id="transaction-form" novalidate>
+                    <input type="hidden" id="record-id">
+                    <div class="form-control">
+                        <label for="description">Description<span aria-hidden="true">*</span></label>
+                        <input type="text" id="description" required placeholder="e.g. Lunch at cafeteria">
+                        <span class="error-msg" id="err-description"></span>
+                    </div>
+                    <div class="form-control">
+                        <label for="amount">Amount ($) <span aria-hidden="true">*</span></label>
+                        <input type="number" step="0.01" id="amount" required placeholder="12.50">
+                        <span class="error-msg" id="err-amount"></span>
+                    </div>
+                    <div class="form-control">
+                        <label for="category">Category <span aria-hidden="true">*</span></label>
+                        <select id="category" required>
+                            <option value="Food">Food</option>
+                            <option value="Books">Books</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option vavlue="Fees">Fees</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="error-msg" id="err-category"></span>
+                    </div>
+                    <div class="form-control">
+                        <label for="date">Date (YYY-MM-DD)<span aria-hidden="true">*</span></label>
+                        <input type="date" id="date" required>
+                        <span class="error-msg" id="err-date"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="save-btn">Save Transaction</button>
+                        <button type="button" class="btn btn-seconadary" id="cancel-btn" style="display:none;">Cancel Edit</button>
+                    </div>
+                </form>
+            </section>
+            <section id="settings" class="card" aria-labelledby="settings-heading">
+                <h2 id="settings-heading">Settings & Data Management</h2>
+                <div class="settings-group">
+                    <h3>Currency & Conversion Rates</h3>
+                    <div class ="form-control">
+                        <label for="base-currency">Base Currency:</label>
+                        <select id="base-currency">
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                                            </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="rate-eur">EUR Rate (per 1 USD):</label>
+                        <input type="number" step="0.001" id="rate-eur" value="0.92">
+                    </div>
+                    <div class="form-control">
+                        <label for="rate-gbp">GBP Rate(per 1 USD):</label>
+                        <input type="number" step="0.001" id="rate-gbp" value="0.79">
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3> Budget Cap Alert Target</h3>
+                    <div class="form-control">
+                        <label for="budget-cap-input">Monthly Speding Cap ($):</label>
+                        <input type="number" id="budget-cap-input" placeholder="e.g. 500">
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3>Data Backup & Restore</h3>
+                    <div class="button-group">
+                        <button id="export-btn" class="btn btn-primary" type="button">Export JSON</button>
+                        <label for="import-file" class="btn btn-secondary firl-upload-label">Import JSON</label>
+                        <input type="file" id="import-file" accept=".json" style="display: none;">
+                        <button id="load-seed-btn" class="btn btn-danger" type="button">Load Seed Data</button>
+                    </div>
+                    <sapn id="import-status" class="status-msg" role="status"></sapn>
+                </div>
+            </section>
+            <section id="about" class="card" aria-labelledby="about-heading">
+                <h2 id="about-heading">About Pennypinch</h2>
+                <p>Pennypinch is a clean, accessible student finance tracker built with vanilla HTML5, CSS3 and modern JavaScript modules</p>
+                <h3>Developer Contact & links</h3>
+                <ul>
+                    <li><strong>Developer:</strong>Nziza Lael David</li>
+                    <li><strong>Email:</strong>nzizalaeldavid@gmail.com</li>
+                </ul>
+            </section>
+            </main>
+            <footer class="site-footer">
+                <div class="container">
+                    <p>&copy; 2026 Nziza Lael David. Student Finance Tracker.</p>
+                </div>
+            </footer>
+            <script type="module" src="scripts/app.js"></script>
+    </body>
+</html>
