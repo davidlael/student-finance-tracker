@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <title>Unit Tests - Student Finance Tracker</title>
+    <style>
+        body{font-family:monospace; padding: 2rem; background: #1e293b; color: #f8fafc;}
+        .pass{color: #4ade80; }
+        .fail{color: #f87171; }
+        h1{ font-family: sans-serif; margin-bottom:1rem; }
+        ul{list-style: none;padding: 0; }
+        li{ padding: 0.5rem 0; border-bottom: 1px solid #334155; }
+    </style>
+</head>
+<body>
+    <h1> Validation % Regex Assertion Suite (Nziza Lael David)</h1>
+    <ul id="test-results"></ul>
+    <script type="module">
+        import{ validateDescription, validateAmount, validateCategory,hasDuplicateWords } from './script/validators.js';
+        import{ compileRegex } from './scripts/search.js';
+        const resultslist = document.getElementById('test-results');
+        function assert(name,condition){
+        const li = document.createElement('li');
+        li.textContent = `${name}: ${condition ? 'PASS': 'FAIL'}`;
+        li.classname= condition ? 'pass' : 'fail';
+        resultslist.appendchild(li);
+        }
+        assert('Description validation (valid)', validateDescription('lunch at cafeteria').valid === true);
+        assert('Description validation(invalid spaces)',validateDescription('Bad sapce').valid === false);
+        assert('Amount validation (integer)', validateAmount('45').valid === true);
+        assert('Amount validation(decimal)',validateAmount('12.50').valid === true);
+        assert('Amount validation(invalid)',validateAmount('12.50.1').valid === false);
+        assert('Date validation (valid)', validateDate('2026-03-10').valid ===true);
+        assert('Date validation (invalid)',validate('10-03-2026').valid === false);
+        assert('Category validation (valid)',validateCategory('Food').valid === true);
+        assert('Category validation (invalid)', validateCatgory('Food#1').valid === false);
+        assert('Advanced regex: Dupliacation word detector',hasDuplicateWords('Morning coffee coffee') === true);
+        assert('Advanced regex: No duplicate word',hasDuplicateWords('Morning fresh coffee') === false);
+        assert('Safe Regex Compiler',compileRegex('[a-z]') === null);
+    </script>
+</body>
+</html>
