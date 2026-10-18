@@ -3,9 +3,9 @@
 A responsive, single-page web application designed for students to track income, expenses, and monthly budget limits locally with instant search, data validation, and automated unit testing.
 
 ## 🚀 Live Demo & Repository
-- **Live Deployment:** [https://davidlael.github.io/student-finance-tracker/](https://davidlael.github.io/student-finance-tracker/)
+- **VIDEO DEMO:** https://youtu.be/LCGo5KcnM5U
 - **GitHub Repository:** [https://github.com/davidlael/student-finance-tracker](https://github.com/davidlael/student-finance-tracker)
-- VIDEO DEMO: https://youtu.be/LCGo5KcnM5U
+  
 
 ---
 
