@@ -1,0 +1,92 @@
+[
+    { 
+        "id": "txn_0001",
+        "description": "Lunch at cafeteria",
+        "amount": 12.50,
+        "category": "Food",
+        "date": "2026-06-09",
+        "createdAt": "2026-06-09T08:00:00.000Z",
+        "updateAt": "2026-06-09T08:00:00.000Z"
+    },
+    {
+        "id": "txn_0002",
+        "description": "chemistry textbook",
+        "amount": 89.99,
+        "category": "Books",
+        "date": "2026-05-02",
+        "createdAt": "2026-05-02T09:15:00.000Z",
+        "updateAt":"2026-05-02T09:15:00.000Z"
+    },
+    {
+        "id":"txn_0003",
+        "description":"Monthly bus pass",
+        "amount":45.00,
+        "category":"transoprt",
+        "date":"2026-07-20",
+        "createdAt":"2026-07-20T10:00:00.000Z",
+        "updateAt":"2026-07-20T10:00:00.000Z"
+    },
+    {
+        "id":"txn_0004",
+        "description":"Movie night with friends",
+        "amount":18.25,
+        "category":"Entertaintainment",
+        "date":"2026-04-02",
+        "createdAt":"2026-04-02T18:30:00.000Z",
+        "updateAt":"2026-04-02T18:30:00.000Z"
+    },
+    {
+        "id":"txn_0005",
+        "description":"Semester tuition fee partial",
+        "amount":350.00,
+        "category":"Fees",
+        "date":"2026-02-08",
+        "createdAt":"2026-02-08T11:00:00.000Z",
+        "updateAt":"2026-02-08T11:00:00.000Z"
+    },
+    {
+        "id":"txn_0006",
+        "description":"Morning coffee coffee",
+        "amount":4.50,
+        "category" :"Food",
+        "date":"2026-10-02",
+        "createdAt":"2026-10-02T11:30:00.000Z",
+        "updateAt":"2026-10-02T11:00:00.000Z"
+    },
+    {
+        "id":"txn_0007",
+        "description":"Notebooks and pens",
+        "amount":14.20,
+        "category":"Books",
+        "date":"2026-09-17",
+        "createdAt":"2026-09-17T14:20:00.000Z",
+        "updateAt":"2026-09-17T14:20:00.000Z"
+    },
+    {
+        "id":"txn_0008",
+        "description":"Subway train ticket",
+        "amount":3.75,
+        "category":"transoprt",
+        "date":"2026-06-29",
+        "createdAt":"2026-06-29T07:45:00.000Z",
+        "updateAt":"2026-06-29T107:45:00.000Z"
+    },
+    {
+        "id":"txn_0009",
+        "description":"Concert ticket",
+        "amount":45.00,
+        "category":"Entertaintainment",
+        "date":"2026-03-10",
+        "createdAt":"2026-03-10T16:00:00.000Z",
+        "updateAt":"2026-03-10T16:00:00.000Z"
+    },
+    {
+        "id":"txn_0010",
+        "description":"Lab equipment rental",
+        "amount":25.00,
+        "category":"other",
+        "date":"2026-11-18",
+        "createdAt":"2026-11-18T15:00:00.000Z",
+        "updateAt":"2026-11-18T15:00:00.000Z"
+    }
+]
